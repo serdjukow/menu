@@ -171,9 +171,22 @@ move();
 
 */
 
-$(document).ready(function() {
-	$('.header__burger').click(function(event) {
+$(document).ready(function () {
+	$('.header__burger').click(function (event) {
 		$('.header__burger, .menu__mobile').toggleClass('active');
 		$('body').toggleClass('lock');
 	});
-});(jQuery);
+}); (jQuery);
+
+//Menu position fixed, top
+$(document).ready(function () {
+	var start_pos = $('.header_menu-row').offset().top;
+	$(window).scroll(function () {
+		if ($(window).scrollTop() >= start_pos) {
+			if ($('.header_menu-row').hasClass() == false) $('.header_menu-row').addClass('change');
+		}
+		else $('.header_menu-row').removeClass('change');
+
+	});
+});
+//Menu position fixed, top
